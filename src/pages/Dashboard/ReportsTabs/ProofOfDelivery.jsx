@@ -18,9 +18,8 @@ export const ProofOfDelivery = () => {
 
     const [loading, setLoading] = React.useState(true);
     const [isAscending, setAscending] = React.useState(true);
-    const [sortList, setSortList] = React.useStat>(tempProofDeliveryData);
+    const [sortList, setSortList] = React.useState(tempProofDeliveryData);
 
-    const [singleView, setSingleView] = React.useState('default');
     const [selected, setSelected] = React.useState('default');
     const [selectedList, setSelectedList] = React.useState([]);
 

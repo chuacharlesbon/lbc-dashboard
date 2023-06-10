@@ -12,13 +12,15 @@ export const SuppliesMonitoring = () => {
 
     const [loading, setLoading] = React.useState(true);
     const [loading1, setLoading1] = React.useState(true);
+    const [isAscending, setAscending] = React.useState(true);
+    const [sortList, setSortList] = React.useState(tempProofDeliveryData);
 
     const [currentPage, setCurrentPage] = React.useState(1);
     const [articlesPerPage] = React.useState(10);
     const indexOfLastArticle = currentPage * articlesPerPage;
     const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
 
-    const newList = tempProofDeliveryData.slice(indexOfFirstArticle, indexOfLastArticle);
+    const newList = sortList.slice(indexOfFirstArticle, indexOfLastArticle);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -34,6 +36,69 @@ export const SuppliesMonitoring = () => {
             setLoading1(false);
         }, 1500)
     }, [])
+
+    const onSort = async (column) => {
+        setLoading1(true);
+        if (isAscending) {
+            if(column == 0){
+                const tempList = await sortList.sort((a, b) => {
+                    if (a.sender < b.sender) { return -1; }
+                    if (a.sender > b.sender) { return 1; }
+                    return 0;
+                });
+                setSortList(tempList);
+            }else if(column == 1){
+                const tempList = await sortList.sort((a, b) => {
+                    if (a.bookDate < b.bookDate) { return -1; }
+                    if (a.bookDate > b.bookDate) { return 1; }
+                    return 0;
+                });
+                setSortList(tempList);
+            }else if(column == 2){
+                //
+            }else if(column == 3){
+                const tempList = await sortList.sort((a, b) => {
+                    if (a.receiver < b.receiver) { return -1; }
+                    if (a.receiver > b.receiver) { return 1; }
+                    return 0;
+                });
+                setSortList(tempList);
+            }
+            setTimeout(() => {
+                setLoading1(false);
+                setAscending(!isAscending);
+            }, 1000)
+        } else {
+            if(column == 0){
+                const tempList = await sortList.sort((a, b) => {
+                    if (a.sender > b.sender) { return -1; }
+                    if (a.sender < b.sender) { return 1; }
+                    return 0;
+                });
+                setSortList(tempList);
+            }else if(column == 1){
+                const tempList = await sortList.sort((a, b) => {
+                    if (a.bookDate > b.bookDate) { return -1; }
+                    if (a.bookDate < b.bookDate) { return 1; }
+                    return 0;
+                });
+                setSortList(tempList);
+            }else if(column == 2){
+                //
+            }else if(column == 3){
+                const tempList = await sortList.sort((a, b) => {
+                    if (a.receiver > b.receiver) { return -1; }
+                    if (a.receiver < b.receiver) { return 1; }
+                    return 0;
+                });
+                setSortList(tempList);
+            }
+            setTimeout(() => {
+                setLoading1(false);
+                setAscending(!isAscending);
+            }, 1000)
+        }
+    }
 
     return (
         <>
@@ -228,25 +293,25 @@ export const SuppliesMonitoring = () => {
                         </Text>
                         <ColumnHeader
                             title="Requested By"
-                            onClick={() => { }}
+                            onClick={() => onSort(0)}
                             containerClass="hover:bg-grey-400 rounded-full w-1/8 px-4 py-2"
                             titleClassName=""
                         />
                         <ColumnHeader
                             title="Requested Date"
-                            onClick={() => { }}
+                            onClick={() => onSort(1)}
                             containerClass="hover:bg-grey-400 rounded-full w-1/7 px-4 py-2"
                             titleClassName=""
                         />
                         <ColumnHeader
                             title="Touchpoint"
-                            onClick={() => { }}
+                            onClick={() => onSort(2)}
                             containerClass="hover:bg-grey-400 rounded-full w-1/8 px-4 py-2"
                             titleClassName=""
                         />
                         <ColumnHeader
                             title="Receiver"
-                            onClick={() => { }}
+                            onClick={() => onSort(3)}
                             containerClass="hover:bg-grey-400 rounded-full w-1/8 px-4 py-2"
                             titleClassName=""
                         />
@@ -278,7 +343,7 @@ export const SuppliesMonitoring = () => {
                         currentPage={currentPage}
                         itemsPerPage={articlesPerPage}
                         paginate={paginate}
-                        totalItems={tempProofDeliveryData.length}
+                        totalItems={sortList.length}
                     />
                 </Div>
             </Div>
