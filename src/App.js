@@ -5,7 +5,11 @@ import { RawButton } from './core/Buttons';
 import { FlexRow } from './core/Containers';
 import { Text } from './core/Text';
 import { ForgotPassword, Login, Logout } from './pages/Auth';
-import { Activity, BookNow, DashboardHome, Payments, Reports } from './pages/Dashboard/';
+import { Activity } from './pages/Dashboard/Activity';
+import { BookNow } from './pages/Dashboard/BookNow';
+import { DashboardHome } from './pages/Dashboard/DashboardHome';
+import { Payments } from './pages/Dashboard/Payments';
+import { Reports } from './pages/Dashboard/Reports';
 import { DashboardDeliveryTableData, RemittanceReportsPage, SummaryRemittanceReportsPage } from './pages/Dashboard/DashboardHome/';
 import { Notifications } from './pages/Notifications';
 import { UserProfile } from './pages/Profile/UserProfile';
@@ -44,8 +48,8 @@ function App() {
   }, [location])
 
   return (
-    //<div className="phone:h-780px phone:w-1440px tabletWide:h-full tabletWide:w-full relative">
-    <div className="h-full w-full relative">
+    <div className="phone:h-780px phone:w-1440px tabletWide:h-full tabletWide:w-full relative">
+    {/* <div className="h-full w-full relative"> */}
 
       <Routes>
 
