@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Analytics, LBCCarouselSlider, PerformanceReports, RemittanceReports, RecentBookingReports } from './DashboardHome';
+import { Analytics } from './DashboardHome/Analytics';
+import { LBCCarouselSlider } from './DashboardHome/Carousel';
+import { PerformanceReports } from './DashboardHome/PerformanceReports';
+import { RemittanceReports } from './DashboardHome/RemittanceReports';
+import { RecentBookingReports } from './DashboardHome/RecentBookingReports';
 import { NavbarMain, TopNavBar } from '../../components/Navigation';
 import { Div, FlexColumn, FlexRow, Spacer } from '../../core/Containers';
 
@@ -9,8 +13,6 @@ export const DashboardHome = () => {
     const { search } = useLocation();
     const query = new URLSearchParams(search);
     const actionQuery = query.get('status');
-
-    const [reports, setReports] = React.useState("Delivery");
 
     return (
         <FlexRow className='w-full h-full items-center justify-between'>

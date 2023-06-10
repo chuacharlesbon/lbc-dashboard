@@ -10,7 +10,7 @@ export const RemittanceReportsPage = () => {
 
     const [loading, setLoading] = React.useState(true);
     const [isAscending, setAscending] = React.useState(true);
-    const [sortList, setSortList] = React.useState>(tempRemittanceTableData);
+    const [sortList, setSortList] = React.useState(tempRemittanceTableData);
 
     const [currentPage, setCurrentPage] = React.useState(1);
     const [articlesPerPage] = React.useState(5);
