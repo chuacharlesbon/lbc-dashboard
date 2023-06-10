@@ -5,7 +5,7 @@ import { ImUpload3, ImInfo, ImSpinner2 } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Images } from '../../../assets/images/images';
 import { BookNowModal } from '../../../components/Modals';
-import { ColumnHeader, BookNowDataEditRow, BookNowDataSummaryRow } from '../../../components/Tables';
+import { ColumnHeader, BookNowDataRow, BookNowDataEditRow, BookNowDataSummaryRow } from '../../../components/Tables';
 import { BookNowSummaryColumn } from '../../../constants/ConstantsData';
 import { BookNowSummaryDetails } from '../../../constants/TempData';
 import { Button, RawButton } from '../../../core/Buttons';
@@ -27,9 +27,9 @@ export const BookNowTab = () => {
     const [loading, setLoading] = React.useState(true);
     const [isToastOpenA, setToastOpenA] = React.useState(false);
 
-    const inputFileRef = React.useRef<any>(null);
-    const [file, setFile] = React.useState<any>([{ name: 'browse', size: 0 }]);
-    const [prevFile, setPrevFile] = React.useState<any>([{ name: 'browse', size: 0 }]);
+    const inputFileRef = React.useRef(null);
+    const [file, setFile] = React.useState([{ name: 'browse', size: 0 }]);
+    const [prevFile, setPrevFile] = React.useState([{ name: 'browse', size: 0 }]);
     const [uploaded, setUpload] = React.useState(false);
 
     React.useEffect(() => {
