@@ -18,7 +18,7 @@ export const ActiveTab = () => {
 
     const [loading, setLoading] = React.useState(true);
     const [isAscending, setAscending] = React.useState(true);
-    const [sortList, setSortList] = React.useStat>(tempActivityData);
+    const [sortList, setSortList] = React.useState(tempActivityData);
 
     const [singleView, setSingleView] = React.useState('default');
     const [selected, setSelected] = React.useState('default');

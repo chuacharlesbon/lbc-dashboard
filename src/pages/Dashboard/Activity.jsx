@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ActiveTab, PastTab, DraftTab } from './ActivityTabs';
-import { NavbarMain, TopNavBar } from '../../components/Navigation/NavbarMain';
+import { NavbarMain, TopNavBar } from '../../components/Navigation';
 import { Div, Divider, FlexColumn, FlexRow } from '../../core/Containers';
 import { classNames } from '../../helpers/ClassNames';
 import { Tab } from '@headlessui/react';
