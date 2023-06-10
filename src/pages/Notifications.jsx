@@ -13,10 +13,8 @@ export const Notifications = () => {
     const [loading, setLoading] = React.useState(true);
 
     const [notifKeyword, setKeyword] = React.useState('');
-    const [notifDate, setDate] = React.useState('Date');
     const [notifSubject, setSubject] = React.useState('');
-    const [notifStatus, setStatus] = React.useState('Status');
-    const [sortList, setSortList] = React.useStat>(tempNotificationData);
+    const [sortList, setSortList] = React.useState(tempNotificationData);
 
     const [currentPage, setCurrentPage] = React.useState(1);
     const [articlesPerPage] = React.useState(5);
@@ -69,14 +67,14 @@ export const Notifications = () => {
 
     const onSortStatus = async (type) => {
         if (type === 'Read') {
-            const tempList = await tempNotificationData.filter((a) => a.status == 'Read');
+            const tempList = await tempNotificationData.filter((a) => a.status === 'Read');
             setSortList(tempList);
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
             }, 1000)
         } else if (type === 'Unread') {
-            const tempList = await tempNotificationData.filter((a) => a.status == 'Unread');
+            const tempList = await tempNotificationData.filter((a) => a.status === 'Unread');
             setSortList(tempList);
             setLoading(true);
             setTimeout(() => {
@@ -218,7 +216,7 @@ export const Notifications = () => {
                                 currentPage={currentPage}
                                 itemsPerPage={articlesPerPage}
                                 paginate={paginate}
-                                totalItems={tempNotificationData.length}
+                                totalItems={sortList.length}
                             />
                         </Div>
                     </FlexColumn>
