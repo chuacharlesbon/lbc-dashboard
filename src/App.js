@@ -1,12 +1,15 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
-import { FlexRow } from './core/Containers';
+import { BsFillChatRightDotsFill } from 'react-icons/bs';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { RawButton } from './core/Buttons';
+import { FlexRow } from './core/Containers';
 import { Text } from './core/Text';
 import { ForgotPassword, Login, Logout } from './pages/Auth';
+import { Activity, BookNow, DashboardHome, Payments, Reports } from './pages/Dashboard/';
+import { DashboardDeliveryTableData, RemittanceReportsPage, SummaryRemittanceReportsPage } from './pages/Dashboard/DashboardHome/';
+import { Notifications } from './pages/Notifications';
+import { UserProfile } from './pages/Profile/UserProfile';
 import { Error, Incompatible, Loading, NoAuth } from './pages/Window';
-import { BsFillChatRightDotsFill } from 'react-icons/bs';
 import { getCookie, useCookie, useWindowSize } from './hooks';
 
 function App() {
@@ -52,30 +55,26 @@ function App() {
 
         {/* Dashboard Pages */}
 
-        {/* 
         <Route element={<DashboardHome />} path="/dashboard-home" />
         <Route element={<DashboardDeliveryTableData />} path="/dashboard-home/delivery-table-data" />
         <Route element={<SummaryRemittanceReportsPage />} path="/dashboard-home/summary-remittance-table-data" />
         <Route element={<RemittanceReportsPage />} path="/dashboard-home/remittance-table-data" />
-         */}
 
         {/* Book Now Pages */}
-        {/* <Route element={<BookNow />} path="/book-now" /> */}
+        <Route element={<BookNow />} path="/book-now" />
 
         {/* Reports Pages */}
-        {/* <Route element={<Reports />} path="/reports" /> */}
+        <Route element={<Reports />} path="/reports" />
 
         {/* Activity Pages */}
-        {/* <Route element={<Activity />} path="/activity" /> */}
+        <Route element={<Activity />} path="/activity" />
 
         {/* Payment Pages */}
-        {/* <Route element={<Payments />} path="/payments" /> */}
+        <Route element={<Payments />} path="/payments" />
 
         {/* Profile */}
-        {/* 
         <Route element={<UserProfile />} path="/profile" />
         <Route element={<Notifications />} path="/notifications" />
-         */}
 
         {/* Window States */}
         <Route element={<Error />} path="*" />
