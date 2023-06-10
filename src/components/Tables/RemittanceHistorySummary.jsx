@@ -2,7 +2,7 @@ import React from 'react';
 import { Div, Divider, FlexRow } from '../../core/Containers';
 import { Text } from '../../core/Text';
 
-export const RemittanceHistorySummar = ({
+export const RemittanceHistorySummary = ({
     referenceId,
     depositedDate,
     amount

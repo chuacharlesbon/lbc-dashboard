@@ -18,7 +18,7 @@ export const Pagination = ({
     }
 
     const lastPage = Math.ceil(totalItems / itemsPerPage);
-    const [pageNumber, setPageNumber] = React.useState<number>(1);
+    const [pageNumber, setPageNumber] = React.useState(1);
     const [isLastPage, setIsLastPage] = React.useState(false);
     const [isFirstPage, setIsFirstPage] = React.useState(false);
 
@@ -110,7 +110,7 @@ export const PaginationCustom = ({
     }
 
     const lastPage = Math.ceil(totalItems / itemsPerPage);
-    const [pageNumber, setPageNumber] = React.useState<number>(1);
+    const [pageNumber, setPageNumber] = React.useState(1);
     const [isLastPage, setIsLastPage] = React.useState(false);
     const [isFirstPage, setIsFirstPage] = React.useState(false);
 
